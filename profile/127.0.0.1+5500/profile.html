@@ -24,6 +24,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
 
+    <link href="multiselect.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
     
@@ -35,12 +38,83 @@
     
     </script>
 
+  <script>
+    $(document).ready(function(){
+      $("#modifyDataB").click(function(){
+        if($("#modifyDataD").hasClass("hide") === true){
+          $("#modifyDataD").removeClass("hide");
+        }
+        else{
+          $("#modifyDataD").addClass("hide");
+        }
+      });
+    });
 
 
+      function fadeOut(){
+        document.getElementById("modifyDataD").style.transition = "opacity 0.5s linear 0s";
+        document.getElementById("modifyDataD").style.opacity = 0;
+      }
 
-    <script>
+      function fadeIn(){
+        document.getElementById("modifyDataD").style.transition = "opacity 0.5s linear 0s";
+        document.getElementById("modifyDataD").style.opacity = 1;
+      }
 
-    </script>
+  </script>
+
+  <style>
+    .hide {
+      display: none;
+    }
+
+
+    .fileUpload {
+	background: rgb(51,94,234);
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 7.5px;
+	color: #fff;
+	font-size: 1em;
+	font-weight: bold;
+	overflow: hidden;
+	padding: 0.875em;/*14px/16px*/
+	position: relative;
+	text-align: center;
+	width: 120px;
+   cursor: pointer;
+}
+.fileUpload:hover, .fileUpload:active, .fileUpload:focus {
+	background: rgb(51,94,234);
+  cursor: pointer;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    width: 148px;
+    height: 46px;
+  cursor: pointer;
+}
+
+input[type="file"] {
+    position: fixed;
+    right: 100%;
+    bottom: 100%;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
+}
+
+  </style>
 
 
   </head>
@@ -125,19 +199,162 @@
     <section>
       <div class="container" >
         <div class="row">
-          <div class="col-12 col-md-12 col-lg-12 d-flex" style="margin-bottom: 15px; margin-top: 50px;">
-            <button type="button" class="btn btn-outline-primary">عدل بياناتك ليراها الاخرون</button>
+          <div class="col-12 col-md-12 col-lg-12 d-flex" style="margin-bottom: 15px; margin: 50px 0 50px 0;">
+            <button type="button" class="btn btn-outline-primary" id="modifyDataB">عدل بياناتك ليراها الاخرون</button>
           </div>
 
+            <div id="modifyDataD"  class="hide" dir="rtl">
+
+              <!-- Form -->
+              <form class="mb-6">
+                <div class="row" >  
+
+                  <!-- UserName -->
+                  <div class="form-group col-12 col-md-5 col-lg-4 col-sm-12">
+                    <label class="form-label" for="email">
+                      الاسم الرباعي
+                    </label>
+                    <input type="text" class="form-control" id="email" placeholder="علام عبد اللطيف محمود لحلوح">
+                  </div>
+
+                  <!-- Age -->
+                  <div class="form-group col-12 col-md-5 col-lg-4 col-sm-12">
+                    <label class="form-label" for="email">
+                      العمر
+                    </label>
+                    <input type="number" class="form-control" id="email" placeholder="30">
+                  </div>
+
+                  <!-- city -->
+                  <div class="form-group col-12 col-md-5 col-lg-4 col-sm-12">
+                    <label class="form-label" for="email">
+                      مكان اقامتك الان
+                    </label> <br>
+                    <select class="selectpicker remove-example w-50"  >
+                      <option value="Mustard">جنين</option>
+                      <option value="Ketchup">نابلس</option>
+                      <option value="Ketchup">رام الله</option>
+                      <option value="Ketchup">قلقيلية</option>
+                    </select>
+                  </div>
+
+                  <!-- city -->
+                  <div class="form-group col-12 col-md-5 col-lg-4 col-sm-12">
+                    <label class="form-label" for="email">
+                      هل تمتلك تصريح
+                    </label> <br>
+                    <select class="selectpicker remove-example w-50"  >
+                      <option value="Ketchup">نعم</option>
+                      <option value="Ketchup">لا</option>
+                    </select>
+                  </div>
+
+                  <!-- Age -->
+                  <div class="form-group col-12 col-md-5 col-lg-4 col-sm-12">
+                    <label class="form-label" for="email">
+                      الاجر اليومي بالشيكل
+                    </label>
+                    <input type="number" class="form-control" id="email" placeholder="30" min="0" >
+                  </div>
+
+
+                  <!-- city -->
+                  <div class="form-group col-12 col-md-5 col-lg-4 col-sm-12">
+                    <label class="form-label" for="email">
+                      مجالات العمل
+                    </label> <br>
+                    <select id="profetionSelect" class="selectpicker remove-example w-50" multiple="multiple" class="form-control" >
+                      <option value="Mustard"> بلاط </option>
+                      <option value="Ketchup"> دهان </option>
+                      <option value="Ketchup"> نجارة </option>
+                      <option value="Ketchup">قلقيلية</option>
+                    </select>
+                  </div>
+
+                  <!-- city -->
+                  <div class="form-group col-12 col-md-5 col-lg-4 col-sm-12">
+                    <label class="form-label" for="email">
+                      متاح للعمل الان
+                    </label> <br>
+                    <select class="selectpicker remove-example w-50"  >
+                      <option value="Ketchup">نعم</option>
+                      <option value="Ketchup">لا</option>
+                    </select>
+                  </div>
+                  
+
+
+                  <!-- Submit -->
+                  <div class="row" style="text-align: center; justify-content: center; margin-top: 40px;">
+                    <button class="btn btn-primary col-12 col-lg-4 col-md-5 col-sm-6  " type="submit">
+                      احفظ التغييرات
+                    </button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
 
         </div>
       </div>
-    <section>
+    </section>
 
 
+
+
+
+
+
+
+
+
+
+
+
+    <section style="margin-top: 50px; text-align: center; justify-content: center;" >
+      <div class="container" >
+      <h2>اضف منشور</h2>
+      <form class="mb-6">
+        <div class="row" style="text-align: center; justify-content: center;">  
+          <!-- UserName -->
+            <div class="col-12" >
+              <textarea placeholder="بم تفكر؟" style="width: 60%;"></textarea>
+            </div>
+
+            <div class="row col-12" style="width: 60%; text-align: center; justify-content: center;" >
+              <div class="fileUpload col-4" style="text-align: center; justify-content: center; margin: 20px 50px 20px 50px;">
+                <input type="file" class="upload" />
+                حمل وسائط
+              </div>
+
+              <div class="fileUpload col-4" style="text-align: center; justify-content: center; margin: 20px 50px 20px 50px;">
+                <input type="submit" class="upload"  />
+                نشر
+              </div>
+            </div>
+
+            <!-- <div class="row col-12" style="text-align: center; justify-content: center;">
+              <div class="fileUpload col-6" style="width: 30%;">
+                <input type="file" class="upload"  />
+                <span class="col-6" >حمل وسائط</span>
+              </div>
+
+              <div class="col-lg-6">            
+                <button class="btn btn-primary col-lg-6 " type="submit"  style="width: 30%;">
+                نشر
+                </button>
+              </div>
+            </div> -->
+
+        </div>
+      </form>
+    </div>
+    </section>
+
+    
 
     <!-- ARTICLES -->
-    <section>
+    <section style="margin: 0 7.5% 0 7.5%;">
       <div class="container" >
         <div class="row">
           <div class="col-12 col-md-12 col-lg-12 d-flex" style="margin-bottom: 50px; margin-top: 50px;">
@@ -650,5 +867,34 @@
 		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
 	}
 	// ]]>
-</script></body>
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="multiple-select.js"></script>
+<script>
+    $(function() {
+        $('#profetionSelect').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            width: '100%'
+        });
+    });
+</script>
+
+<!-- Using a local copy -->
+
+<!-- Include the default stylesheet -->
+<link rel="stylesheet" type="text/css" href="multiple-select.css">
+<!-- Include plugin -->
+<script src="multiple-select.js"></script>
+
+<!-- Or using a CDN -->
+
+<!-- Include the default stylesheet -->
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.css">
+<!-- Include plugin -->
+<script src="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.js"></script>
+
+</body>
 </html>
