@@ -199,11 +199,11 @@ input[type="file"] {
     <section>
       <div class="container" >
         <div class="row">
-          <div class="col-12 col-md-12 col-lg-12 d-flex" style="margin-bottom: 15px; margin: 50px 0 50px 0;">
+          <div class="col-12 col-md-12 col-lg-12 d-flex" style="margin: 50px 0 0px 0;">
             <button type="button" class="btn btn-outline-primary" id="modifyDataB">عدل بياناتك ليراها الاخرون</button>
           </div>
 
-            <div id="modifyDataD"  class="hide" dir="rtl">
+            <div id="modifyDataD"  class="hide" dir="rtl" style="margin: 30px 0 0 0;">
 
               <!-- Form -->
               <form class="mb-6">
@@ -222,7 +222,7 @@ input[type="file"] {
                     <label class="form-label" for="email">
                       العمر
                     </label>
-                    <input type="number" class="form-control" id="email" placeholder="30">
+                    <input type="number" class="form-control" id="email" placeholder="30" min="0">
                   </div>
 
                   <!-- city -->
@@ -317,13 +317,13 @@ input[type="file"] {
       <form class="mb-6">
         <div class="row" style="text-align: center; justify-content: center;">  
           <!-- UserName -->
-            <div class="col-12" >
-              <textarea placeholder="بم تفكر؟" style="width: 60%;"></textarea>
+            <div class="col-12">
+              <textarea placeholder="بم تفكر؟" style="width: 60%;" rows="7" ></textarea>
             </div>
 
             <div class="row col-12" style="width: 60%; text-align: center; justify-content: center;" >
               <div class="fileUpload col-4" style="text-align: center; justify-content: center; margin: 20px 50px 20px 50px;">
-                <input type="file" class="upload" />
+                <input type="file" class="upload" accept="image/*"  />
                 حمل وسائط
               </div>
 
